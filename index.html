@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Inter', sans-serif;
-            /* НАСТРОЙКИ ФОНА */
+            /* ФОНОВОЕ ИЗОБРАЖЕНИЕ */
             background-image: url('https://i.ibb.co/gL1Vm9f6/1c46722deda7c9dca1f73421587036b1.jpg');
             background-size: cover;
             background-position: center center;
@@ -32,10 +32,10 @@
             margin: 0 auto;
         }
 
-        /* Контактная информация */
+        /* Контактная информация — тоже сделаем прозрачной */
         .contact-bar {
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(4px);
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
             border-radius: 12px;
             padding: 12px 16px;
             margin-bottom: 20px;
@@ -44,13 +44,13 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .contact-text {
             font-size: 13px;
-            color: #1a1a2e;
+            color: #ffffff;
             font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
         /* Кнопка "Предложения цены" */
@@ -65,7 +65,7 @@
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             transition: transform 0.1s, opacity 0.2s;
         }
 
@@ -82,13 +82,12 @@
             font-size: 14px;
         }
 
-        /* Стиль для строк таблицы (карточек) */
+        /* КАРТОЧКИ — теперь прозрачные с размытием */
         .marketplace-table tr {
-            background-color: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(2px);
+            background-color: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(12px);
             border-radius: 12px;
             transition: transform 0.1s, box-shadow 0.1s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         .marketplace-table td {
@@ -107,12 +106,13 @@
             text-align: right;
         }
 
-        /* Стиль юзернейма */
+        /* Стиль юзернейма — белый с тенью для читаемости */
         .username-cell {
             font-weight: 700;
             font-size: 15px;
             letter-spacing: -0.2px;
-            color: #111;
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
             font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
         }
 
@@ -129,7 +129,7 @@
             transition: all 0.2s ease;
             font-family: 'Inter', 'Segoe UI', sans-serif;
             letter-spacing: -0.2px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
 
         .buy-link:active {
@@ -137,32 +137,28 @@
             opacity: 0.85;
         }
 
-        /* Адаптация под тёмную тему Telegram */
-        @media (prefers-color-scheme: dark) {
-            .contact-bar {
-                background-color: rgba(0, 0, 0, 0.7);
-                backdrop-filter: blur(6px);
-            }
-            .contact-text {
-                color: #eee;
-            }
+        /* Адаптация под светлую тему Telegram — делаем карточки темнее, чтобы текст читался */
+        @media (prefers-color-scheme: light) {
             .marketplace-table tr {
-                background-color: rgba(20, 20, 30, 0.85);
-                backdrop-filter: blur(3px);
+                background-color: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(12px);
             }
             .username-cell {
-                color: #f0f0f0;
+                color: #ffffff;
+            }
+            .contact-bar {
+                background-color: rgba(0, 0, 0, 0.5);
             }
         }
 
         .footer {
             text-align: center;
             font-size: 11px;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             margin-top: 20px;
             padding: 12px 0;
             border-top: 0.5px solid rgba(255, 255, 255, 0.3);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
     </style>
 </head>
@@ -198,7 +194,7 @@
             "AiPerformer", "GameGoer", "ExpoGirl", "AiCobra", "Royalharbor",
             "HunkAgent", "MuggleBank", "nuxbt", "nuxvip", "chinsup", "ultimatehit",
             "aiteem", "FlameCobra", "WoxWax", "Wholerage", "keyactor", "exteammate",
-            "pool_x", "BlackTicker", "onebiv", "BtcF0under", "nesgua",
+            "pool_x", "BlackTicker", "onebiv", "BtcF0under", "nesgua", "NonWizard",
             "NewsWheel", "skillflame", "UltraArmor", "exliar", "Bodyblow",
             "HazardGirls", "PokerLite", "DanbaoDianbao", "vipround", "rogatory",
             "ExtraElite", "Platinico", "Dutyfee", "Fairwords", "MapsBtc",
