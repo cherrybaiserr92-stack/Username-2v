@@ -14,8 +14,8 @@
 
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Inter', sans-serif;
-            /* ФОНОВОЕ ИЗОБРАЖЕНИЕ */
-            background-image: url('https://i.ibb.co/gL1Vm9f6/1c46722deda7c9dca1f73421587036b1.jpg');
+            /* ВАШ ФОН */
+            background-image: url('https://i.ibb.co/rGGsPRQy/0a42be4ad5d5b398e3ac890bbc3f6baf.jpg');
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -32,7 +32,7 @@
             margin: 0 auto;
         }
 
-        /* Контактная информация — тоже сделаем прозрачной */
+        /* Контактная информация */
         .contact-bar {
             background-color: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(8px);
@@ -74,7 +74,35 @@
             opacity: 0.9;
         }
 
-        /* Таблица в стиле маркетплейс */
+        /* Панель сортировки */
+        .sort-panel {
+            margin-bottom: 16px;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .sort-btn {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            border: none;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 500;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .sort-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Таблица */
         .marketplace-table {
             width: 100%;
             border-collapse: separate;
@@ -82,12 +110,12 @@
             font-size: 14px;
         }
 
-        /* КАРТОЧКИ — теперь прозрачные с размытием */
+        /* Прозрачные карточки */
         .marketplace-table tr {
-            background-color: rgba(0, 0, 0, 0.35);
+            background-color: rgba(0, 0, 0, 0.25);
             backdrop-filter: blur(12px);
-            border-radius: 12px;
-            transition: transform 0.1s, box-shadow 0.1s;
+            border-radius: 16px;
+            transition: all 0.2s;
         }
 
         .marketplace-table td {
@@ -95,18 +123,17 @@
             vertical-align: middle;
         }
 
-        /* Закругление углов у строки */
         .marketplace-table td:first-child {
-            border-top-left-radius: 12px;
-            border-bottom-left-radius: 12px;
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
         }
         .marketplace-table td:last-child {
-            border-top-right-radius: 12px;
-            border-bottom-right-radius: 12px;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
             text-align: right;
         }
 
-        /* Стиль юзернейма — белый с тенью для читаемости */
+        /* Обычный юзернейм */
         .username-cell {
             font-weight: 700;
             font-size: 15px;
@@ -114,22 +141,52 @@
             color: #ffffff;
             text-shadow: 0 1px 2px rgba(0,0,0,0.5);
             font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
-        /* Кнопка "Купить" */
+        /* Премиальный юзернейм: золотой цвет + звёздочка */
+        .username-cell.premium {
+            color: #ffd966;
+            text-shadow: 0 0 4px rgba(255, 215, 0, 0.7);
+        }
+
+        .premium-star {
+            font-size: 18px;
+            filter: drop-shadow(0 0 2px gold);
+        }
+
+        /* Чёрная кнопка "Купить" с иконкой TON */
         .buy-link {
-            background-color: var(--tg-theme-button-color, #2a7de1);
-            color: var(--tg-theme-button-text-color, #ffffff);
+            background-color: #000000;
+            color: #ffffff;
             text-decoration: none;
             padding: 8px 18px;
             border-radius: 30px;
             font-size: 13px;
             font-weight: 600;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             transition: all 0.2s ease;
             font-family: 'Inter', 'Segoe UI', sans-serif;
             letter-spacing: -0.2px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Иконка TON белая через data:image SVG */
+        .buy-link::before {
+            content: "";
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
         }
 
         .buy-link:active {
@@ -137,17 +194,16 @@
             opacity: 0.85;
         }
 
-        /* Адаптация под светлую тему Telegram — делаем карточки темнее, чтобы текст читался */
+        /* Адаптация под светлую тему (карточки чуть плотнее) */
         @media (prefers-color-scheme: light) {
             .marketplace-table tr {
-                background-color: rgba(0, 0, 0, 0.5);
-                backdrop-filter: blur(12px);
-            }
-            .username-cell {
-                color: #ffffff;
+                background-color: rgba(0, 0, 0, 0.4);
             }
             .contact-bar {
                 background-color: rgba(0, 0, 0, 0.5);
+            }
+            .sort-btn {
+                background-color: rgba(0, 0, 0, 0.7);
             }
         }
 
@@ -164,18 +220,22 @@
 </head>
 <body>
     <div class="container">
-        <!-- Контактные данные и кнопка "Предложения цены" -->
         <div class="contact-bar">
             <span class="contact-text">📩 По вопросам: t.me/AlexRocket</span>
             <a href="https://t.me/AlexRocket" class="offer-btn" target="_blank">💎 Предложения цены →</a>
         </div>
 
-        <!-- Маркетплейс-таблица с юзернеймами -->
+        <!-- Панель сортировки -->
+        <div class="sort-panel">
+            <button id="sortByLengthBtn" class="sort-btn">📏 Сортировать по длине (короткие сверху)</button>
+            <button id="resetSortBtn" class="sort-btn">🔄 Сбросить сортировку</button>
+        </div>
+
         <table class="marketplace-table" id="usernames-table">
             <tbody>
-                <!-- Данные загружаются динамически -->
+                <!-- Список загружается через JS -->
             </tbody>
-        </table>
+        40?
 
         <div class="footer">
             🔒 Покупка через Fragment.com | TON
@@ -187,8 +247,10 @@
         tg.expand();
         tg.ready();
 
-        // Список юзернеймов (без @)
-        const usernamesList = [
+        // --------------------------------------------------------------
+        // СПИСОК ЮЗЕРНЕЙМОВ (оригинальный порядок)
+        // --------------------------------------------------------------
+        const ORIGINAL_USERNAMES = [
             "AlexRocket", "RocketEdition", "Cryptogoer", "DuoBank", "MansBank",
             "JuicyLad", "oldrisk", "LuxAlexa", "hubrisk", "Addressal", "eby24x7",
             "AiPerformer", "GameGoer", "ExpoGirl", "AiCobra", "Royalharbor",
@@ -207,24 +269,74 @@
             "IbmXT", "HotAMG", "HotBMW", "HotM5G90", "HotM5F90", "HotPorsche"
         ];
 
-        // Функция рендера таблицы
-        function renderTable() {
+        // --------------------------------------------------------------
+        // НАСТРОЙКИ ПРЕМИАЛЬНОСТИ (легко менять)
+        // --------------------------------------------------------------
+        const PREMIUM_KEYWORDS = [
+            "rocket", "bank", "vip", "elite", "wizard", "royal", "hazard", "risk",
+            "alpha", "ultra", "prime", "hot", "cobra", "lady", "king", "queen",
+            "star", "gold", "platinum", "mega", "super", "x", "z", "pro", "plus",
+            "group", "team", "global", "master", "lord", "ace", "hero", "champ", "legend"
+        ];
+        const MAX_LENGTH_FOR_PREMIUM = 5; // юзернеймы длиной <=5 символов считаются премиальными
+
+        // Функция проверки, является ли юзернейм премиальным
+        function isPremiumUsername(username) {
+            // 1. По длине
+            if (username.length <= MAX_LENGTH_FOR_PREMIUM) return true;
+            // 2. По ключевым словам (без учёта регистра)
+            const lowerName = username.toLowerCase();
+            return PREMIUM_KEYWORDS.some(keyword => lowerName.includes(keyword));
+        }
+
+        // --------------------------------------------------------------
+        // РЕНДЕР ТАБЛИЦЫ (с учётом премиальности)
+        // --------------------------------------------------------------
+        function renderTable(usernamesArray) {
             const tbody = document.querySelector('#usernames-table tbody');
             if (!tbody) return;
 
-            tbody.innerHTML = usernamesList.map(username => `
-                <tr>
-                    <td class="username-cell">${username}</td>
-                    <td>
-                        <a href="https://fragment.com/username/${username.toLowerCase()}" class="buy-link" target="_blank">
-                            Купить →
-                        </a>
-                    </td>
-                </tr>
-            `).join('');
+            tbody.innerHTML = usernamesArray.map(username => {
+                const isPremium = isPremiumUsername(username);
+                const premiumStar = isPremium ? '<span class="premium-star">⭐</span>' : '';
+                const premiumClass = isPremium ? 'premium' : '';
+                return `
+                    <tr>
+                        <td class="username-cell ${premiumClass}">
+                            ${premiumStar} ${username}
+                        </td>
+                        <td>
+                            <a href="https://fragment.com/username/${username.toLowerCase()}" class="buy-link" target="_blank">
+                                Купить
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
         }
 
-        renderTable();
+        // Текущий список для отображения (изначально оригинальный)
+        let currentUsernames = [...ORIGINAL_USERNAMES];
+
+        // Сортировка по длине (по возрастанию)
+        function sortByLength() {
+            const sorted = [...currentUsernames].sort((a, b) => a.length - b.length);
+            currentUsernames = sorted;
+            renderTable(currentUsernames);
+        }
+
+        // Сброс к исходному порядку
+        function resetToOriginal() {
+            currentUsernames = [...ORIGINAL_USERNAMES];
+            renderTable(currentUsernames);
+        }
+
+        // Инициализация
+        renderTable(currentUsernames);
+
+        // Навешиваем обработчики на кнопки
+        document.getElementById('sortByLengthBtn').addEventListener('click', () => sortByLength());
+        document.getElementById('resetSortBtn').addEventListener('click', () => resetToOriginal());
     </script>
 </body>
 </html>
